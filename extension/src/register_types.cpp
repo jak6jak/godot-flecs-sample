@@ -1,4 +1,7 @@
 #include "register_types.h"
+#include "FileDock.h"
+#include "FileDockPlugin.h"
+#include "godot_cpp/classes/editor_plugin.hpp"
 #include "world.h"
 #include <gdextension_interface.h>
 #include <godot_cpp/core/class_db.hpp>
@@ -13,6 +16,12 @@ namespace FlecsModule
 {
 	void initialize(ModuleInitializationLevel p_level)
 	{
+		if(p_level == godot::MODULE_INITIALIZATION_LEVEL_EDITOR){
+			godot::ClassDB::register_class<FileDock>();
+			godot::ClassDB::register_class<godot::FileDockPlugin>();
+			godot::EditorPlugins::add_by_type<FileDockPlugin>();
+		}
+		
 		if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE)
 		{
 			return;
@@ -23,9 +32,8 @@ namespace FlecsModule
 
 	void uninitialize(ModuleInitializationLevel p_level)
 	{
-		if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE)
-		{
-			return;
+		if(p_level == godot::MODULE_INITIALIZATION_LEVEL_EDITOR){
+			godot::EditorPlugins::remove_by_type<FileDock>();
 		}
 	}
 

@@ -21,3 +21,4 @@
 *.exp
 .vscode
 .DS_Store
+.cache/*

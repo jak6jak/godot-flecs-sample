@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6eosr2lxyai7"]
+
+[ext_resource type="Texture2D" uid="uid://cx1mscuegq1lo" path="res://icon.png" id="1_2uc5s"]
+[ext_resource type="Script" path="res://BuildTree.gd" id="1_x2fda"]
+
+[node name="FileExplorer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+drag_to_rearrange_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.29
+
+[node name="Tree" type="Tree" parent="VBoxContainer/TabContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+script = ExtResource("1_x2fda")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/TabContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Click me!"
+icon = ExtResource("1_2uc5s")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.29
+
+[node name="Tree" type="Tree" parent="VBoxContainer/TabContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+drop_mode_flags = 1
+script = ExtResource("1_x2fda")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/TabContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Click me!"
+icon = ExtResource("1_2uc5s")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Button2" type="Button" parent="VBoxContainer/TabContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Click me!"
+icon = ExtResource("1_2uc5s")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="PopupMenu" type="PopupMenu" parent="MenuBar"]
+item_count = 1
+item_0/text = "tyest"
+item_0/id = 0

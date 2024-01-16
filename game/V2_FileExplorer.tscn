@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://c40wvad3unjg4"]
+
+[ext_resource type="Script" path="res://AddIconToSide.gd" id="1_6sj3m"]
+[ext_resource type="Texture2D" uid="uid://ewqyiifpg45j" path="res://Icons/hamburger.svg" id="1_cuqdy"]
+[ext_resource type="Theme" uid="uid://b83xpn8x41o5c" path="res://PluginTheme.tres" id="3_wwobd"]
+[ext_resource type="Texture2D" uid="uid://cx1mscuegq1lo" path="res://icon.png" id="4_pix6f"]
+
+[node name="V2FileExplorer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6sj3m")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Panel/HBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_cuqdy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Search"
+scroll_fit_content_height = true
+
+[node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_wwobd")
+
+[node name="PopupMenu" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+item_count = 1
+item_0/text = "Hello"
+item_0/icon = ExtResource("4_pix6f")
+item_0/id = 0

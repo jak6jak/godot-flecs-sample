@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://rxw3yc4ptanb"]
+
+[node name="FolderIcon" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = -1
+size_flags_horizontal = 3
+size_flags_vertical = 2
